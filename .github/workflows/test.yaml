@@ -10,7 +10,7 @@ jobs:
       - name: Test action
         uses: ./
         with:
-          image: 'container'
+          image: 'container:latest'
           context: './test'
           folder: './deploy'
           destination: ${{ secrets.SSH_URL }}
