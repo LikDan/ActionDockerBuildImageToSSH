@@ -7,5 +7,5 @@ docker save --output container.tar container:latest
 
 echo "$5" >> 'key.pem'
 
-scp -i 'key.pem' container.tar "$4":container.tar
-ssh -i "key.pem" -t "$4" "sudo docker load --input container.tar && rm container.tar"
+scp -i 'key.pem' -o 'StrictHostKeyChecking no' container.tar "$4":container.tar
+ssh -i "key.pem" -o 'StrictHostKeyChecking no' -t "$4" "sudo docker load --input container.tar && rm container.tar"
