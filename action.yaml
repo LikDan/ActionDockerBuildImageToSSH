@@ -1,0 +1,32 @@
+name: 'Docker build image to ssh'
+description: 'Build docker image and copy to remote server through ssh'
+inputs:
+  image:
+    description: 'Image name and tag'
+    required: true
+    default: 'container:latest'
+  context:
+    description: 'Context where project is located'
+    required: false
+    default: '.'
+  folder:
+    description: 'Folder where Dockerfile is located'
+    required: false
+    default: '.'
+  destination:
+    description: 'SSH connection string'
+    required: true
+    default: '.'
+  destination_key:
+    description: 'SSH connection key'
+    required: false
+    default: '.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.image }}
+    - ${{ inputs.context }}
+    - ${{ inputs.folder }}
+    - ${{ inputs.destination }}
+    - ${{ inputs.destination_key }}
