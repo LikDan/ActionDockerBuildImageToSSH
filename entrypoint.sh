@@ -2,7 +2,7 @@
 
 cd "$2" || exit
 
-docker build -f "$3"/Dockerfile -t $1 .
+docker build -f "$3"/Dockerfile -t "$1" .
 docker save --output container.tar container:latest
 
 echo "$5" > 'key.pem'
