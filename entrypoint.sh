@@ -10,7 +10,7 @@ chmod 600 'key.pem'
 
 scp -i 'key.pem' -o 'StrictHostKeyChecking no' container.tar "$4":container.tar
 
-cmd=$(printf 'sudo docker rmi %s && sudo docker load --input container.tar && rm container.tar' "$1")
+cmd=$(printf '(sudo docker rmi -f %s || true) && sudo docker load --input container.tar && rm container.tar' "$1")
 ssh -i "key.pem" -o 'StrictHostKeyChecking no' -t "$4" "$cmd"
 
 rm container.tar
