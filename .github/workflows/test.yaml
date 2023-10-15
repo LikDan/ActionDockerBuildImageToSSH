@@ -1,12 +1,12 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  test:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Test action
     steps:
-      - name: Hello world action step
-        uses: actions/hello-world-docker-action@v2
+      - name: Test action
+        uses: ./
         with:
           image: 'container'
           context: './test'
