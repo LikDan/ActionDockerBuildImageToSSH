@@ -1,5 +1,8 @@
 name: 'Docker build image to ssh'
 description: 'Build docker image and copy to remote server through ssh'
+branding:
+  icon: 'server'
+  color: 'green'
 inputs:
   image:
     description: 'Image name and tag'
@@ -20,7 +23,7 @@ inputs:
   destination_key:
     description: 'SSH connection key'
     required: false
-    default: '.'
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
